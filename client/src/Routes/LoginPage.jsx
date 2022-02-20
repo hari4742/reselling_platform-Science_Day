@@ -20,7 +20,7 @@ const LoginPage = () => {
                 <p className='login-btn'>Login</p>
                 <div className="info">
                     <p>Don't have an accout? <Link to='/signup'>Sign Up Here</Link></p>
-                    <p><a href="#">Forgot password?Click here</a></p>
+                    <p><Link to='/' >Forgot password?Click here</Link></p>
                 </div>
             </div>
         </div>
