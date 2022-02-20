@@ -1,0 +1,74 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ecf0f1;
+  padding: 7px;
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.336);
+}
+.header .logo-text {
+  display: flex;
+  gap: 7px;
+}
+.header .logo-text img {
+  height: 70px;
+}
+.header .logo-text .text {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.header .logo-text .text p,
+.login-sign p {
+  font-size: 18px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 4px 5px;
+  border-radius: 5px;
+}
+.header .logo-text .text p:nth-child(1),
+.login-sign p:nth-child(2) {
+  background-color: #34495e;
+  color: #f1f5f5;
+}
+.header .logo-text .text p:nth-child(2),
+.login-sign p:nth-child(1) {
+  color: #34495e;
+  border: 2px solid #34495e;
+  padding: 1px 5px;
+}
+.header .search-bar {
+  width: 40%;
+  display: flex;
+  border: 2px solid #34495e;
+  border-radius: 7px;
+  /* background-color: #ecf0f1; */
+}
+.header .search-bar input {
+  padding: 7px;
+  border-radius: 7px 0px 0px 7px;
+  width: 100%;
+  outline: none;
+  border: none;
+  /* background: transparent; */
+}
+.header .search-bar .icon {
+  font-size: 35px;
+  padding: 7px;
+  color: white;
+  background-color: #34495e;
+  cursor: pointer;
+}
+.header .login-sign {
+  display: flex;
+  gap: 20px;
+}
+
+.header .login-sign p {
+  padding: 7px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
