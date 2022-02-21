@@ -1,0 +1,91 @@
+.signup-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.signup-page .bg-logo {
+  height: 100vh;
+  width: 100%;
+  background: url("../Images/cuh_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+.signup-page .signup {
+  box-shadow: 2px 2px 5px 1px #00000057;
+  background-color: rgba(255, 255, 255, 0.568);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  border-top: 2px solid rgba(255, 255, 255, 0.486);
+  border-left: 2px solid rgba(255, 255, 255, 0.425);
+}
+.signup-page .signup form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.signup-page .signup .intro p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+.signup-page .signup form input {
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid black;
+  padding: 5px 2px;
+  font-size: 14px;
+  border-radius: 0px;
+  transition: border-radius 1s;
+}
+.signup-page .signup .names,
+.signup-page .signup .passwords {
+  display: flex;
+  gap: 10px;
+}
+.signup-page .signup .logo {
+  flex-direction: row;
+}
+.signup-page .signup .logo p {
+  font-size: 30px;
+}
+.signup-page .signup .signup-btn {
+  font-size: 18px;
+  background-color: #34495e;
+  color: white;
+  font-weight: 800;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+.signup-page .signup .signup-btn:hover {
+  background-color: #435f7a;
+}
+.signup-page .signup .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.signup-page .signup .info p {
+  font-size: 15px;
+  font-weight: 600;
+}
+.signup-page .signup .info p a {
+  text-decoration: underline;
+  color: rgb(42, 66, 148);
+}
