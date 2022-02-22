@@ -1,0 +1,13 @@
+.product-details-page {
+  height: 100%;
+}
+.product-details-page .imgs-details {
+  display: flex;
+}
+.product-details-page .imgs-details .details .product-details {
+  position: relative;
+}
+.imgs-description {
+  width: 70%;
+  height: 80vh;
+}

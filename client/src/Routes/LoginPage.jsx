@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Components/Logo';
-import '../Styles/login-page.css'
+import '../Styles/login-page.css';
+
 const LoginPage = () => {
     return ( 
         <div className="login-page">
