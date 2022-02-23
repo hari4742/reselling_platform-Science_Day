@@ -28,14 +28,20 @@ const ProductDetailsPage = () => {
                 <div className="details">
                     <div className="product-details">
                         <Heart/>
-                        <p>price</p>
-                        <p>Product Name</p>
-                        <p>Posted Date</p>
+                        <p>Price details</p>
+                        <h3>₹ 25,000</h3>
+                        <p className='sec-info'>Product Name</p>
+                        <p className='pri-info'>Samsung Ultra pro Max</p>
+                        <p className='sec-info'>Posted Date</p>
+                        <p className='pri-info'>Feb 35 9340</p>
                     </div>
                     <div className="seller-details">
-                        <h3>Seller</h3>
-                        <p>Name</p>
-                        <p>Branch</p>
+                        <p>Seller Description</p>
+                        <h3>Name</h3>
+                        <p className='sec-info'>Branch</p>
+                        <p className='pri-info'>CSE</p>
+                        <p className='sec-info'>Phone Number</p>
+                        <p className='pri-info'>7923847231</p>
                     </div>
                 </div>
             </div>
