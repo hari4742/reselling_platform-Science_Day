@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-
+import '../Styles/search-bar.css'
 const SearchBar = () => {
     return ( 
         <div className="search-bar">

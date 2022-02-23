@@ -1,13 +1,14 @@
 .footer {
   background-color: rgba(180, 180, 179, 0.863);
+  padding: 10px;
 }
 
-.first {
+.footer .first {
   display: flex;
   flex-wrap: wrap;
 }
 
-hr {
+.footer hr {
   height: 4px;
   margin-top: 20%;
   background-color: black;

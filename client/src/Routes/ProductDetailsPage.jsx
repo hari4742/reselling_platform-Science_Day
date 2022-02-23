@@ -8,8 +8,9 @@ import ImgSwiper from '../Components/ImgSwiper';
 import { AuthContext } from '../context/AuthContext';
 import "../Styles/product-details-page.css";
 const ProductDetailsPage = () => {
-    const {user} = useContext(AuthContext);
+    // const {user} = useContext(AuthContext);
     const {id} = useParams();
+    const [user,setUser] = useState(null);
     const [prod,setProd] = useState({});
     const [imgs,setImgs] = useState([]);
     const fetchProduct = async()=>{
@@ -17,12 +18,19 @@ const ProductDetailsPage = () => {
         const res = await backend.get(`/product/${id}/details`);
         // console.log(res.data.data[0]);
         setProd(res.data.data[0]);
+        let user_id = res.data.data[0].user_id;
+        const response = await backend.get(`/user/${user_id}/details`);
+        setUser(response.data.data[0]);
+        console.log(response.data.data[0]);
+
+        
     }
     const fetchImages = async()=>{
         const res = await backend.get(`/product/${id}/images`);
         setImgs(res.data.data);
         // console.log(res.data.data); 
     }
+
     useEffect(()=>{
         fetchProduct();
         fetchImages();
@@ -49,11 +57,11 @@ const ProductDetailsPage = () => {
                     </div>
                     <div className="seller-details">
                         <p>Seller Description</p>
-                        <h3>{user.first_name.charAt(0).toUpperCase()+user.first_name.slice(1) + ' '+user.last_name}</h3>
+                        <h3>{user?user.first_name.charAt(0).toUpperCase()+user.first_name.slice(1) + ' '+user.last_name:null}</h3>
                         <p className='sec-info'>Branch</p>
-                        <p className='pri-info'>{user.department}</p>
+                        <p className='pri-info'>{user?user.department:null}</p>
                         <p className='sec-info'>Phone Number</p>
-                        <p className='pri-info'>{user.mobile}</p>
+                        <p className='pri-info'>{user?user.mobile:null}</p>
                     </div>
                 </div>
             </div>

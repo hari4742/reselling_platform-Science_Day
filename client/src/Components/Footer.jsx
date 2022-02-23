@@ -5,7 +5,6 @@ import React,{Fragment} from 'react';
 import { GrInstagram } from "react-icons/gr";
 import { BsFacebook } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
-// import { FaGooglePlay } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
 

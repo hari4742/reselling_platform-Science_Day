@@ -10,6 +10,7 @@ import SellProductPage from "./Components/SellProductPage";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Products from "./Routes/Products";
+import About from "./Routes/AboutUs";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/products" element={<Products />} />
+            <Route exact path="/about" element={<About />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/signup" element={<SignUpPage />} />
             <Route
