@@ -23,6 +23,7 @@
 }
 .item-card .item-img img {
   height: 100%;
+  overflow: hidden;
 }
 .item-card .item-content {
   display: flex;

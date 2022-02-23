@@ -73,7 +73,7 @@ app.post("/upload/multiple", function (req, res) {
 app.get("/products", async (req, res) => {
   try {
     const result = await db.query(
-      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy'),description from products;"
+      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products;"
     );
     res.status(200).json({
       status: "success",
@@ -131,9 +131,37 @@ app.post("/product/add", async (req, res) => {
   try {
     const { user_id, product_name, category, price, posted_date, description } =
       req.body;
+    let sampleFile;
+    let uploadPath;
+
+    if (!req.files || Object.keys(req.files).length === 0) {
+      return res.status(400).send("No files were uploaded.");
+    }
+    let currentDate = new Date();
+    let uniqName =
+      currentDate.getFullYear().toString() +
+      currentDate.getMonth().toString() +
+      currentDate.getDay().toString() +
+      currentDate.getHours().toString() +
+      currentDate.getMinutes().toString() +
+      currentDate.getSeconds().toString();
+    sampleFile = req.files.display_img;
+    uploadPath = "/public/Images/product_imgs/" + uniqName + sampleFile.name;
+
+    sampleFile.mv(__dirname + uploadPath, function (err) {
+      if (err) return res.status(500).send(err);
+    });
     const result = await db.query(
-      "INSERT INTO products(user_id,product_name,category,price,posted_date,description) VALUES ($1,$2,$3,$4,$5,$6) returning *;",
-      [user_id, product_name, category, price, posted_date, description]
+      "INSERT INTO products(user_id,product_name,category,price,posted_date,description,display_img) VALUES ($1,$2,$3,$4,$5,$6,$7) returning *;",
+      [
+        user_id,
+        product_name,
+        category,
+        price,
+        posted_date,
+        description,
+        uploadPath,
+      ]
     );
     res.status(200).json({
       status: "success",

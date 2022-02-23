@@ -1,0 +1,95 @@
+.sell-product-page {
+  background: url("../Images/add_book_bg.svg");
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+  font-family: "Dosis", sans-serif;
+}
+.sell-product-page h1,
+.sell-product-page p {
+  text-align: center;
+  margin: 25px 5px;
+  color: #f5f6fa;
+}
+.sell-product-page h1 {
+  text-shadow: 3px -4px 5px rgba(70, 67, 67, 0.507);
+  font-size: 40px;
+}
+.sell-product-page-btns {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.sell-product-page-btns .fa-arrow-left {
+  font-size: 18px;
+  margin-right: 9px;
+}
+.sell-product-page-btns p:nth-child(1) {
+  background-color: #718093;
+}
+.sell-product-page p {
+  background-color: #9c88ff;
+  width: fit-content;
+  justify-self: center;
+  font-size: 22px;
+  padding: 7px 15px;
+  border-radius: 7px;
+  font-weight: 500;
+  color: #ffffff;
+  box-shadow: 0px 0px 0px 3px #f5f6fadc;
+  cursor: pointer;
+}
+.sell-product-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sell-product-page form select {
+  font-family: "Dosis", sans-serif;
+  font-size: 22px;
+  padding: 5px 10px;
+  outline: none;
+  background-color: #f8f8f8e8;
+  border: 2px solid #bdc3c7;
+  border-radius: 7px;
+  font-weight: 500;
+}
+.sell-product-page form textarea {
+  font-family: "Dosis", sans-serif;
+  font-size: 22px;
+  outline: none;
+  padding: 5px 10px;
+  background-color: #f8f8f8e8;
+  border: 2px solid #bdc3c7;
+  border-radius: 7px;
+  font-weight: 500;
+}
+.sell-product-page form input {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  outline: none;
+  font-size: 22px;
+  padding: 7px 10px;
+  background-color: #f8f8f8e8;
+  border: 2px solid #bdc3c7;
+  border-radius: 7px;
+}
+.sell-product-page .category-price {
+  display: flex;
+  gap: 10px;
+}
+.sell-product-page .category-price select {
+  width: 50%;
+}
+.sell-product-page .category-price #price {
+  width: 50%;
+}
+
+.sell-product-page #prod_imgs::before {
+  content: "📷";
+  background-color: transparent;
+  border: none;
+  font-size: 100px;
+  cursor: pointer;
+}

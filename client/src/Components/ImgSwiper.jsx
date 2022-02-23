@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import '../Styles/img-swiper.css';
 import "swiper/css/bundle";
-const ImgSwiper = () => {
+const ImgSwiper = (props) => {
     return (  
         <div className='img-swipper'>
         <Swiper
@@ -17,12 +17,9 @@ const ImgSwiper = () => {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 6</SwiperSlide>
+          {props.prod_imgs?props.prod_imgs.map((img)=>{
+              return <SwiperSlide><img src={'http://localhost:5000'+img.img_loc} /></SwiperSlide>
+          }):<SwiperSlide>Loading...</SwiperSlide>}
         </Swiper>
       </div>
      );

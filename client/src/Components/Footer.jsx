@@ -15,7 +15,6 @@ function Footer() {
   return (
     <Fragment>
     <div className="footer">
-      <hr></hr>
       <div className="first">
         <table className="middle">
           <tr>
