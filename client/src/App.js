@@ -5,23 +5,26 @@ import ErrorPage from "./Routes/ErrorPage";
 import LoginPage from "./Routes/LoginPage";
 import SignUpPage from "./Routes/SignUpPage";
 import ProductDetailsPage from "./Routes/ProductDetailsPage";
+import AuthContextProvider from "./context/AuthContext";
 function App() {
   return (
     <div className="App">
-      <Router>
-        {/* <Header /> */}
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/signup" element={<SignUpPage />} />
-          <Route
-            exact
-            path="/product/:id/details/:name"
-            element={<ProductDetailsPage />}
-          />
-          <Route exact path="*" element={<ErrorPage />} />
-        </Routes>
-      </Router>
+      <AuthContextProvider>
+        <Router>
+          {/* <Header /> */}
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/signup" element={<SignUpPage />} />
+            <Route
+              exact
+              path="/product/:id/details/:name"
+              element={<ProductDetailsPage />}
+            />
+            <Route exact path="*" element={<ErrorPage />} />
+          </Routes>
+        </Router>
+      </AuthContextProvider>
     </div>
   );
 }
