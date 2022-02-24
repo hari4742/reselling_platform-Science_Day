@@ -30,6 +30,7 @@
   background-color: #ffd6c9;
   color: #aa133d;
   height: 28px;
+  padding-top:1px;
 }
 
 .port3 {
@@ -40,7 +41,7 @@
   border-top: 1px solid #00a49f;
   border-bottom: 1px solid #00a49f;
   background-color: #cbf7ee;
-  height: 28px;
+  padding:5px;
 }
 
 .port4 {
@@ -63,30 +64,65 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 30px;
-  height: 160px;
 }
 
 #click {
   font-size: 15px;
-  height: 80px;
-  width: 150px;
+  padding:16px 14px;
+  /* height: 80px;
+  width: 150px; */
   border: 1px solid black;
   border-radius: 5%;
   box-shadow: 1px 2px #888888;
   margin-left: 25px;
   font-weight: bold;
-  margin-top: 50px;
   transition: 0.5s;
   margin-bottom: 20px;
 }
 
 #click:hover {
   background-color: rgb(181, 181, 192);
-  height: 89px;
-  width: 159;
+  /* height: 89px;
+  width: 159; */
+  padding:17px 15px;
 }
 #click:active {
   background-color: rgb(136, 165, 211);
   box-shadow: 0 5px #666;
   transform: translate(4px);
+}
+@media only screen and (max-width:1598px){
+ .port1 #letter{
+    font-size:15px;
+  }
+  .port2{
+    font-size:12px;
+    padding-top:3px;
+    padding-bottom:2px;
+    height:auto;
+  }
+  .port3{
+    padding-left:20px;
+    padding-right:20px;
+    height: auto;
+    font-size:12px;
+  }
+  .port4>h1{
+    font-size: 22px;;
+  }
+  .port5{
+    height:auto;
+    margin-top:15px;
+  }
+ 
+}
+@media only screen and (max-width:1000px){
+  .port5 #click{
+    font-size:12px;
+    padding:8px 10px;
+  }
+  .port5 #click:hover{
+    padding:10px 12px;
+  }
+  
 }
