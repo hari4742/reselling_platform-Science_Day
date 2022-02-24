@@ -1,9 +1,9 @@
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #ecf0f1;
-  padding: 7px;
+  padding: 7px 50px;
   box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.336);
 }
 .header .logo-text {
@@ -31,28 +31,6 @@
   border: 2px solid #34495e;
   padding: 1px 5px;
 }
-.header .search-bar {
-  width: 40%;
-  display: flex;
-  border: 2px solid #34495e;
-  border-radius: 7px;
-  /* background-color: #ecf0f1; */
-}
-.header .search-bar input {
-  padding: 7px;
-  border-radius: 7px 0px 0px 7px;
-  width: 100%;
-  outline: none;
-  border: none;
-  /* background: transparent; */
-}
-.header .search-bar .icon {
-  font-size: 35px;
-  padding: 7px;
-  color: white;
-  background-color: #34495e;
-  cursor: pointer;
-}
 .header .login-sign {
   display: flex;
   gap: 20px;
@@ -64,4 +42,15 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.header .nav {
+  display: flex;
+  gap: 30px;
+}
+
+.user-btns-login {
+  display: flex;
+  gap: 50px;
+  align-items: center;
 }

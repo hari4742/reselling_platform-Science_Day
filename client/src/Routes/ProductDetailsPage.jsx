@@ -1,47 +1,63 @@
-import React from 'react';
-import Header from '../Components/Header';
+import React, { useContext, useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import backend from '../backend';
 import Heart from '../Components/Heart';
 import ImgSwiper from '../Components/ImgSwiper';
+import { AuthContext } from '../context/AuthContext';
 import "../Styles/product-details-page.css";
 const ProductDetailsPage = () => {
+    const {id} = useParams();
+    const [user,setUser] = useState(null);
+    const [prod,setProd] = useState({});
+    const [imgs,setImgs] = useState([]);
+    const fetchProduct = async()=>{
+        const res = await backend.get(`/product/${id}/details`);
+        // console.log(res.data.data[0]);
+        setProd(res.data.data[0]);
+        let user_id = res.data.data[0].user_id;
+        const response = await backend.get(`/user/${user_id}/details`);
+        setUser(response.data.data[0]);
+        // console.log(response.data.data[0]);
+
+    }
+    const fetchImages = async()=>{
+        const res = await backend.get(`/product/${id}/images`);
+        setImgs(res.data.data);
+        // console.log(res.data.data); 
+    }
+  
+    useEffect(()=>{
+        fetchProduct();
+        fetchImages();
+    },[]);
     return ( 
         <div className="product-details-page">
-            <Header/>
             <div className="imgs-details">
                 <div className="imgs-description">
-                    <ImgSwiper/>
+                    <ImgSwiper prod_imgs={imgs}/>
                     <div className="description">
                         <h3>Description</h3>
-                    <p>11.94 cm (4.7 inch) Retina HD Display
-
-                    8MP Rear Camera | 1.2MP Front Camera
-
-                    Apple A8 64-bit processor and M8 Motion Co-processor
-
-                    1 Year Manufacturer Warranty
-
-                    All colours are available
-
-                    Cod all over India</p>
+                    <p>{prod.description}</p>
                     </div>
                 </div>
                 <div className="details">
                     <div className="product-details">
-                        <Heart/>
+                        <Heart  prod_id={id}/>
                         <p>Price details</p>
-                        <h3>₹ 25,000</h3>
+                        <h3>₹ {prod.price}</h3>
                         <p className='sec-info'>Product Name</p>
-                        <p className='pri-info'>Samsung Ultra pro Max</p>
+                        <p className='pri-info'>{prod.product_name}</p>
                         <p className='sec-info'>Posted Date</p>
-                        <p className='pri-info'>Feb 35 9340</p>
+                        <p className='pri-info'>{prod.posted_date}</p>
                     </div>
                     <div className="seller-details">
                         <p>Seller Description</p>
-                        <h3>Name</h3>
+                        <h3>{user?user.first_name.charAt(0).toUpperCase()+user.first_name.slice(1) + ' '+user.last_name:null}</h3>
                         <p className='sec-info'>Branch</p>
-                        <p className='pri-info'>CSE</p>
+                        <p className='pri-info'>{user?user.department:null}</p>
                         <p className='sec-info'>Phone Number</p>
-                        <p className='pri-info'>7923847231</p>
+                        <p className='pri-info'>{user?user.mobile:null}</p>
                     </div>
                 </div>
             </div>

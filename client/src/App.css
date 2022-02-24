@@ -1,0 +1,10 @@
+.home {
+  /* overflow: hidden; */
+  position: relative;
+}
+.home .disp_img {
+  /* position: absolute; */
+  width: 100%;
+  top: 0px;
+  overflow: hidden;
+}

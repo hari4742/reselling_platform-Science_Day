@@ -73,7 +73,25 @@ app.post("/upload/multiple", function (req, res) {
 app.get("/products", async (req, res) => {
   try {
     const result = await db.query(
-      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy'),description from products;"
+      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products;"
+    );
+    res.status(200).json({
+      status: "success",
+      total_items: result.rowCount,
+      data: result.rows,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(502).json({ status: "failed" });
+  }
+});
+// Get posts by user id
+app.get("/products/user/:user_id", async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const result = await db.query(
+      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products where user_id = $1;",
+      [user_id]
     );
     res.status(200).json({
       status: "success",
@@ -131,9 +149,37 @@ app.post("/product/add", async (req, res) => {
   try {
     const { user_id, product_name, category, price, posted_date, description } =
       req.body;
+    let sampleFile;
+    let uploadPath;
+
+    if (!req.files || Object.keys(req.files).length === 0) {
+      return res.status(400).send("No files were uploaded.");
+    }
+    let currentDate = new Date();
+    let uniqName =
+      currentDate.getFullYear().toString() +
+      currentDate.getMonth().toString() +
+      currentDate.getDay().toString() +
+      currentDate.getHours().toString() +
+      currentDate.getMinutes().toString() +
+      currentDate.getSeconds().toString();
+    sampleFile = req.files.display_img;
+    uploadPath = "/public/Images/product_imgs/" + uniqName + sampleFile.name;
+
+    sampleFile.mv(__dirname + uploadPath, function (err) {
+      if (err) return res.status(500).send(err);
+    });
     const result = await db.query(
-      "INSERT INTO products(user_id,product_name,category,price,posted_date,description) VALUES ($1,$2,$3,$4,$5,$6) returning *;",
-      [user_id, product_name, category, price, posted_date, description]
+      "INSERT INTO products(user_id,product_name,category,price,posted_date,description,display_img) VALUES ($1,$2,$3,$4,$5,$6,$7) returning *;",
+      [
+        user_id,
+        product_name,
+        category,
+        price,
+        posted_date,
+        description,
+        uploadPath,
+      ]
     );
     res.status(200).json({
       status: "success",
@@ -202,9 +248,9 @@ app.post("/user/add/wishlist", async (req, res) => {
   }
 });
 // Delete a wish list
-app.delete("/user/delete/wishlist", async (req, res) => {
+app.delete("/user/:user_id/delete/:wish_id/wishlist", async (req, res) => {
   try {
-    const { user_id, wish_id } = req.body;
+    const { user_id, wish_id } = req.params;
     const result = await db.query(
       "Delete from wish_list where user_id =$1 and wish_id = $2 returning *;",
       [user_id, wish_id]
@@ -225,7 +271,7 @@ app.get("/user/:user_id/wish_list", async (req, res) => {
   try {
     const { user_id } = req.params;
     const result = await db.query(
-      "select * from wish_list where user_id = $1",
+      "select wish_id,wl.user_id,wl.prod_id,product_name,price,posted_date,display_img from wish_list as wl inner join products on wl.prod_id = products.prod_id where wl.user_id  = $1",
       [user_id]
     );
     res.status(200).json({

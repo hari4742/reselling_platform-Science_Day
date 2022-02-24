@@ -43,19 +43,21 @@
   width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   text-align: center;
 }
 .signup-page-container .signup-page .signup-form .full-name {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   gap: 10px;
 }
 .signup-page-container .signup-page .signup-form .full-name input {
-  font-size: 15px;
+  font-size: 12px;
 }
 .signup-page-container .signup-page .signup-form input {
-  font-size: 15px;
+  width: 100%;
+  font-size: 12px;
   border: none;
   outline: none;
   color: black;
@@ -76,10 +78,11 @@
   border-radius: 35px;
   padding: 10px 0px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 0px 3px #8ac1f8;
 }
 .signup-page-container .signup-page .signup-form [type="submit"]:focus {
-  border: none;
+  box-shadow: 0px 0px 0px 0px #8ac1f8;
+  border-bottom: none;
 }
 .signup-page-container .signup-page .signup-form .logo {
   display: flex;
@@ -105,8 +108,13 @@
   font-size: 17px;
   background: linear-gradient(145deg, #fc8a19, #f7c593, #fc8a19);
 }
+.signup-form .both-passwords {
+  display: flex;
+  gap: 10px;
+}
 .signup-form .retype-pass {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   /* padding: 1px 3px; */
@@ -121,4 +129,49 @@
 }
 .retype-pass input {
   width: 100%;
+}
+
+.signup-page-container .signup-page .signup-form select {
+  outline: none;
+  width: 100%;
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 2px solid rgb(204, 211, 218);
+  border-radius: 5px;
+  background-color: #f8f8f8e8;
+}
+
+.signup-page-container .signup-page .signup-form option {
+  padding: 10px;
+}
+
+.signup-page-container .signup-page .signup-form .mobile-dept {
+  display: flex;
+  gap: 10px;
+}
+
+/* Custom File buttom */
+[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+[type="file"]::before {
+  content: "Upload Profile Pic";
+  position: relative;
+  color: white;
+  background-color: #4b6584;
+  left: 10px;
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  /* text-shadow: 1px 1px #fff; */
+  font-weight: 700;
+  font-size: 10pt;
+}
+[type="file"]:hover::before {
+  background-color: whitesmoke;
+  color: #4b6584;
 }
