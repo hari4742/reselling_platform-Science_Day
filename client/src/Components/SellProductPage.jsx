@@ -62,7 +62,7 @@ const SellProductPage = () => {
                 <input onChange={(e)=>{setProductName(e.target.value);}} type="text" name="product_name" id="product_name" placeholder="Product Name" value={product_name} required/>
                 <div className="category-price">
                     <input type="number" onChange={(e)=>{setPrice(e.target.value);}} placeholder="Price" name="price" id="price" value={price} required/>
-                    <select onChange={(e)=>{setCategory(e.target.value);}} name="categorty" id="category" value={category} required>
+                    <select onChange={(e)=>{setCategory(e.target.value);}} name="categorty" id="category" value={category} placeholder="Category" required>
                         <option value="category" disabled>Category</option>
                         <option value="Phones">Phones</option>
                         <option value="Mugs">Mugs</option>

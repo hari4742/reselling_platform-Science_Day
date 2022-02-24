@@ -1,0 +1,27 @@
+.products {
+  position: relative;
+}
+.products .categories {
+  position: absolute;
+  top: 0px;
+  height: 100vh;
+  width: 19%;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.products .categories p:nth-child(1) {
+  font-size: 22px;
+}
+.products .search-prods {
+  overflow-y: scroll;
+  height: 100vh;
+  margin-left: 19%;
+}
+.products .search-prods::-webkit-scrollbar {
+  display: none;
+}
+.categories .cat {
+  cursor: pointer;
+}

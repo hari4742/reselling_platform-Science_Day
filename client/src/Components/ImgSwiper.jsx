@@ -1,8 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
-import '../Styles/img-swiper.css';
 import "swiper/css/bundle";
+import '../Styles/img-swiper.css';
 const ImgSwiper = (props) => {
     return (  
         <div className='img-swipper'>

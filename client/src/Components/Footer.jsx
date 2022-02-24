@@ -13,77 +13,78 @@ import '../Styles/footer.css';
 function Footer() {
   return (
     <Fragment>
-    <div className="footer">
+      <div className="footer">
+      <hr></hr>
       <div className="first">
         <table className="middle">
           <tr>
-            <th>POPULAR LOCATIONS</th>
-            <th>TRENDING LOCATIONS</th>
+            <th id="see">POPULAR LOCATIONS</th>
+            <th id="see">TRENDING PRODUCTS</th>
             <th>ABOUT US</th>
-            <th>OLX</th>
+            <th>OLX-Reselling</th>
             <th>FOLLOW US</th>
           </tr>
           <tr>
-            <td>Kolkata</td>
-            <td>Kolkata</td>
+            <td id="see">wi-fi park</td>
+            <td id="see">Books</td>
             <td>
-              <a href="#">Kolkata</a>
+              <a href="#">Team</a>
             </td>
 
             <td>
-              <a href="#">Kolkata</a>
+              <a href="#">Help</a>
             </td>
             <td id="gap">
               <a href="www.facebook.com">
-                <BsFacebook
+                <BsFacebook id="icon"
                   style={{ fontSize: "200%", color: "black", margin: "7px" }}
                 />
               </a>
               <br />
               <a href="www.instagram.com">
-                <GrInstagram
+                <GrInstagram id="icon"
                   style={{ fontSize: "200%", color: "black", margin: "7px" }}
                 />
               </a>
               <br />
               <a href="www.twitter.com">
-                <FaTwitterSquare
+                <FaTwitterSquare id="icon"
                   style={{ fontSize: "200%", color: "black", margin: "7px" }}
                 />
               </a>
               <br />
               <a href="#">
-                <MdEmail
+                <MdEmail id="icon"
                   style={{ fontSize: "200%", color: "black", margin: "7px" }}
                 />
               </a>
             </td>
           </tr>
           <tr>
-            <td>Kolkata</td>
-            <td>Kolkata</td>
+            <td id="see">PG Hostel</td>
+            <td id="see">Phones</td>
             <td>
-              <a href="#">Kolkata</a>
+              <a href="#">Contact Us</a>
             </td>
             <td>
-              <a href="#">Kolkata</a>
+              <a href="#">Privacy</a>
             </td>
             <td></td>
           </tr>
           <tr>
-            <td>Kolkata</td>
-            <td>Kolkata</td>
+            <td id="see">UG Hostel</td>
+            <td id="see">Buckets</td>
             <td>
-              <a href="#">Kolkata</a>
+              <a href="#">Queries</a>
             </td>
             <td></td>
             <td></td>
           </tr>
           <tr>
-            <td>Kolkata</td>
-            <td></td>
+            <td id="see">Academic Block</td>
+            <td>Beds</td>
             <td>
-              <a href="#">Kolkata</a>
+              
             </td>
             <td></td>
             <td></td>
@@ -93,10 +94,11 @@ function Footer() {
       </div>
       <div className="last">
        
-       Central University of Haryana,
+       Central Reselling Platform,
         <AiOutlineCopyrightCircle /> 2022
       </div>
-    </div></Fragment>
+    </div>
+    </Fragment>
   );
 }
 

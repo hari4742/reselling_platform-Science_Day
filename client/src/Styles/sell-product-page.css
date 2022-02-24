@@ -55,6 +55,9 @@
   border-radius: 7px;
   font-weight: 500;
 }
+.sell-product-page form [type="file"]::before {
+  content: "Upload a Product Picture";
+}
 .sell-product-page form textarea {
   font-family: "Dosis", sans-serif;
   font-size: 22px;

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '../Styles/profile-btn.css';
+import {AiFillCaretDown} from 'react-icons/ai';
 const ProfileBtn = () => {
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ const ProfileBtn = () => {
     return ( 
         <div className="profile-btn" onClick={handleClick}>
             <img src={'http://localhost:5000'+user.propic}/>
-            <p>{user.first_name}</p>
+            <p>{user.first_name != undefined?user.first_name.charAt(0).toUpperCase()+user.first_name.slice(1):null }<AiFillCaretDown className='icon'/></p>
         </div>
      );
 }

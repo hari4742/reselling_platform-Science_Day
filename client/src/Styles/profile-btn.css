@@ -14,3 +14,7 @@
   font-weight: 800;
   font-size: 20px;
 }
+.profile-btn .icon {
+  position: relative;
+  top: 2px;
+}

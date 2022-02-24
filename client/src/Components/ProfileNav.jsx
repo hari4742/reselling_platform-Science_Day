@@ -10,7 +10,7 @@ const ProfileNav = () => {
     const {user,isLogged,setLogged,setUser,wishList,setWishList} = useContext(AuthContext);
     const fetchWishlist = async(user_id)=>{
         const res = await backend.get(`/user/${user_id}/wish_list`);
-        console.log(res);
+        // console.log(res);
         setWishList(res.data.data);
     }
     const navigate = useNavigate();
