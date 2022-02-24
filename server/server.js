@@ -85,6 +85,24 @@ app.get("/products", async (req, res) => {
     res.status(502).json({ status: "failed" });
   }
 });
+// Get posts by user id
+app.get("/products/user/:user_id", async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const result = await db.query(
+      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products where user_id = $1;",
+      [user_id]
+    );
+    res.status(200).json({
+      status: "success",
+      total_items: result.rowCount,
+      data: result.rows,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(502).json({ status: "failed" });
+  }
+});
 
 // Get a specific product
 app.get("/product/:prod_id/details", async (req, res) => {
@@ -230,9 +248,9 @@ app.post("/user/add/wishlist", async (req, res) => {
   }
 });
 // Delete a wish list
-app.delete("/user/delete/wishlist", async (req, res) => {
+app.delete("/user/:user_id/delete/:wish_id/wishlist", async (req, res) => {
   try {
-    const { user_id, wish_id } = req.body;
+    const { user_id, wish_id } = req.params;
     const result = await db.query(
       "Delete from wish_list where user_id =$1 and wish_id = $2 returning *;",
       [user_id, wish_id]
@@ -253,7 +271,7 @@ app.get("/user/:user_id/wish_list", async (req, res) => {
   try {
     const { user_id } = req.params;
     const result = await db.query(
-      "select * from wish_list where user_id = $1",
+      "select wish_id,wl.user_id,wl.prod_id,product_name,price,posted_date,display_img from wish_list as wl inner join products on wl.prod_id = products.prod_id where wl.user_id  = $1",
       [user_id]
     );
     res.status(200).json({

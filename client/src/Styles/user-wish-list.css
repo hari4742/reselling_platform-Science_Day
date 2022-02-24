@@ -1,0 +1,11 @@
+.user-wish-list {
+  display: flex;
+  height: 100vh;
+}
+.user-wish-list .wish-list-prods {
+  overflow-y: scroll;
+}
+
+.user-wish-list .wish-list-prods::-webkit-scrollbar {
+  display: none;
+}

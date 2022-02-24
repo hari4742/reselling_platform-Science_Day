@@ -1,0 +1,16 @@
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.profile-btn img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profile-btn p {
+  font-weight: 800;
+  font-size: 20px;
+}

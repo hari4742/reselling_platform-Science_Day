@@ -48,3 +48,9 @@
   display: flex;
   gap: 30px;
 }
+
+.user-btns-login {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}

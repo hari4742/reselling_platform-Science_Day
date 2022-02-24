@@ -7,7 +7,7 @@ import { FaEye ,FaEyeSlash} from 'react-icons/fa';
 import backend from '../backend';
 import { AuthContext } from '../context/AuthContext';
 const SignUpPage = () => {
-    const{isLogged,setLogged} = useContext(AuthContext);
+    const{isLogged,setLogged,setUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const [isPassVisible,setVisibility] = useState(false);
     const [first_name,setFname] = useState("");
@@ -36,6 +36,29 @@ const SignUpPage = () => {
             password2.type = 'password';
         }
         
+    }
+    const fetchUser = async()=>{
+        let token = localStorage.getItem("token");
+        // console.log(token);
+        if(token){
+            const response = await backend.post("/auth/verify",{'token':token});
+            if(response.data.status === "success"){
+                setLogged(true);
+                const userInfo = await backend.get(`/user/${response.data.user_id}/details`);
+                if(userInfo.data.status === "success"){
+                    setUser(userInfo.data.data[0]);
+                    // console.log(userInfo.data.data[0]);
+                }else{
+                    alert(userInfo.data.msg)
+                }
+                // alert(response.data.user_id);
+            }else{
+                setLogged(false);
+                alert(response.data.msg);
+            }
+        }else{
+            setLogged(false);
+        }
     }
     const handleSignUP = async ()=>{
         let f_name = document.getElementById("first_name").value;
@@ -71,6 +94,7 @@ const SignUpPage = () => {
             if(response.data.status === 'success'){
                 localStorage.setItem("token",response.data.token);
                 setLogged(true);
+                fetchUser();
                 navigate("/");
             }else{  
                 alert(response.data.msg);

@@ -10,13 +10,42 @@ import backend from '../backend';
 import { AuthContext } from '../context/AuthContext';
 
 const LoginPage = () => {
-    const {isLogged,setLogged} = useContext(AuthContext);
+    const {isLogged,setLogged,setUser,setWishList} = useContext(AuthContext);
     const navigate = useNavigate();
     const [isPassVisible,setVisibility] = useState(false);
     // Redirects to home if a user tries to go to login  page with out logout
     useEffect(()=>{
         if(isLogged)navigate('/');
     });
+    const fetchWishlist = async(user_id)=>{
+        const res = await backend.get(`/user/${user_id}/wish_list`);
+        console.log(res);
+        setWishList(res.data.data);
+    }
+    const fetchUser = async()=>{
+        let token = localStorage.getItem("token");
+        // console.log(token);
+        if(token){
+            const response = await backend.post("/auth/verify",{'token':token});
+            if(response.data.status === "success"){
+                setLogged(true);
+                const userInfo = await backend.get(`/user/${response.data.user_id}/details`);
+                if(userInfo.data.status === "success"){
+                    setUser(userInfo.data.data[0]);
+                    fetchWishlist(userInfo.data.data[0].user_id);
+                    // console.log(userInfo.data.data[0]);
+                }else{
+                    alert(userInfo.data.msg)
+                }
+                // alert(response.data.user_id);
+            }else{
+                setLogged(false);
+                alert(response.data.msg);
+            }
+        }else{
+            setLogged(false);
+        }
+    }
     const handleLogIn = async()=>{
         let email = document.getElementById("e_mail").value;
         let password = document.getElementById("password").value;
@@ -39,9 +68,10 @@ const LoginPage = () => {
             if(response.data.status === "success"){
                 localStorage.setItem("token",response.data.token);
                 setLogged(true);
+                fetchUser();
                 navigate('/');
             }else{
-                swal(response.data.msg,'error');
+                swal(response.data.msg,'','error');
             }
         }
     }

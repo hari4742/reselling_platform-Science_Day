@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import backend from '../backend';
@@ -8,29 +7,26 @@ import ImgSwiper from '../Components/ImgSwiper';
 import { AuthContext } from '../context/AuthContext';
 import "../Styles/product-details-page.css";
 const ProductDetailsPage = () => {
-    // const {user} = useContext(AuthContext);
     const {id} = useParams();
     const [user,setUser] = useState(null);
     const [prod,setProd] = useState({});
     const [imgs,setImgs] = useState([]);
     const fetchProduct = async()=>{
-        
         const res = await backend.get(`/product/${id}/details`);
         // console.log(res.data.data[0]);
         setProd(res.data.data[0]);
         let user_id = res.data.data[0].user_id;
         const response = await backend.get(`/user/${user_id}/details`);
         setUser(response.data.data[0]);
-        console.log(response.data.data[0]);
+        // console.log(response.data.data[0]);
 
-        
     }
     const fetchImages = async()=>{
         const res = await backend.get(`/product/${id}/images`);
         setImgs(res.data.data);
         // console.log(res.data.data); 
     }
-
+  
     useEffect(()=>{
         fetchProduct();
         fetchImages();
@@ -47,7 +43,7 @@ const ProductDetailsPage = () => {
                 </div>
                 <div className="details">
                     <div className="product-details">
-                        <Heart/>
+                        <Heart  prod_id={id}/>
                         <p>Price details</p>
                         <h3>₹ {prod.price}</h3>
                         <p className='sec-info'>Product Name</p>
