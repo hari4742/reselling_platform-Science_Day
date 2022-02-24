@@ -29,7 +29,7 @@
   border-bottom: 1px solid #ff4134;
   background-color: #ffd6c9;
   color: #aa133d;
-  height: 28px;
+  padding: 10px 0px;
 }
 
 .port3 {
@@ -40,7 +40,7 @@
   border-top: 1px solid #00a49f;
   border-bottom: 1px solid #00a49f;
   background-color: #cbf7ee;
-  height: 28px;
+  padding: 10px;
 }
 
 .port4 {
@@ -63,7 +63,6 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 30px;
-  height: 160px;
 }
 
 #click {
@@ -75,7 +74,6 @@
   box-shadow: 1px 2px #888888;
   margin-left: 25px;
   font-weight: bold;
-  margin-top: 50px;
   transition: 0.5s;
   margin-bottom: 20px;
 }

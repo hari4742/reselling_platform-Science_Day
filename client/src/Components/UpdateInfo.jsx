@@ -5,7 +5,7 @@ import { FaEye ,FaEyeSlash} from 'react-icons/fa';
 
 import ProfileNav from './ProfileNav';
 const UpdateInfo = (props) => {
-    const {user,setUser} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
     const [f_name,setFname] = useState(user.first_name);
     const [l_name,setLname] = useState(user.last_name);
     const [e_mail,setEmail] = useState(user.email);

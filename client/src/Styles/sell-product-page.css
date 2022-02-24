@@ -2,8 +2,10 @@
   background: url("../Images/add_book_bg.svg");
   min-height: 100vh;
   width: 100vw;
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: "Dosis", sans-serif;
 }
 .sell-product-page h1,
@@ -19,20 +21,14 @@
 .sell-product-page-btns {
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 20px;
 }
-.sell-product-page-btns .fa-arrow-left {
-  font-size: 18px;
-  margin-right: 9px;
-}
-.sell-product-page-btns p:nth-child(1) {
-  background-color: #718093;
-}
+
 .sell-product-page p {
   background-color: #9c88ff;
   width: fit-content;
   justify-self: center;
-  font-size: 22px;
+  font-size: 15px;
   padding: 7px 15px;
   border-radius: 7px;
   font-weight: 500;
@@ -44,6 +40,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+#submit-btn {
+  background-color: #2d98da;
 }
 .sell-product-page form select {
   font-family: "Dosis", sans-serif;
@@ -81,6 +80,7 @@
 .sell-product-page .category-price {
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 .sell-product-page .category-price select {
   width: 50%;

@@ -73,7 +73,7 @@ app.post("/upload/multiple", function (req, res) {
 app.get("/products", async (req, res) => {
   try {
     const result = await db.query(
-      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products;"
+      "select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products order by posted_date::date desc;"
     );
     res.status(200).json({
       status: "success",
@@ -197,7 +197,7 @@ app.get("/products/search", async (req, res) => {
   try {
     const name = req.query.q;
     const result = await db.query(
-      `select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description from products where product_name ilike '%${name}%';`
+      `select prod_id,user_id,product_name,category,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,description,display_img from products where product_name ilike '%${name}%';`
     );
     res.status(200).json({
       status: "success",
@@ -271,7 +271,7 @@ app.get("/user/:user_id/wish_list", async (req, res) => {
   try {
     const { user_id } = req.params;
     const result = await db.query(
-      "select wish_id,wl.user_id,wl.prod_id,product_name,price,posted_date,display_img from wish_list as wl inner join products on wl.prod_id = products.prod_id where wl.user_id  = $1",
+      "select wish_id,wl.user_id,wl.prod_id,product_name,price,to_char(posted_date::date,'Mon dd yyyy') as posted_date,display_img from wish_list as wl inner join products on wl.prod_id = products.prod_id where wl.user_id  = $1",
       [user_id]
     );
     res.status(200).json({

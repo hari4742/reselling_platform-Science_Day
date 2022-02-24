@@ -33,9 +33,9 @@ const ProfileNav = () => {
         <p>{user.first_name} {user.last_name}</p>
         <hr />
         <div className="nav-opt">
-            <NavLink style={{textDecoration:"none"}} activeClassName="setting-selected" to={`/profile/${user.user_id}/${user.first_name+user.last_name}/personal_details`}>Personal Details</NavLink>
-            <NavLink style={{textDecoration:"none"}} activeClassName="setting-selected" to={`/profile/${user.user_id}/${user.first_name+user.last_name}/wishlist`}>Wishlist({wishList.length})</NavLink>
-            <NavLink style={{textDecoration:"none"}} activeClassName="setting-selected" to={`/profile/${user.user_id}/${user.first_name+user.last_name}/posts`}>Your Posts</NavLink>
+            <NavLink style={{textDecoration:"none"}} activeclassname="setting-selected" to={`/profile/${user.user_id}/${user.first_name+user.last_name}/personal_details`}>Personal Details</NavLink>
+            <NavLink style={{textDecoration:"none"}} activeclassname="setting-selected" to={`/profile/${user.user_id}/${user.first_name+user.last_name}/wishlist`}>Wishlist({wishList.length})</NavLink>
+            <NavLink style={{textDecoration:"none"}} activeclassname="setting-selected" to={`/profile/${user.user_id}/${user.first_name+user.last_name}/posts`}>Your Posts</NavLink>
         </div>
         <p id="logout" onClick={handleLogOut}> Log Out</p>
     </div>

@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import backend from '../backend';
 import Heart from '../Components/Heart';
 import ImgSwiper from '../Components/ImgSwiper';
-import { AuthContext } from '../context/AuthContext';
 import "../Styles/product-details-page.css";
+import { AuthContext } from '../context/AuthContext';
 const ProductDetailsPage = () => {
+    const navigate = useNavigate();
+    const {isLogged} = useContext(AuthContext);
     const {id} = useParams();
     const [user,setUser] = useState(null);
     const [prod,setProd] = useState({});
@@ -25,6 +27,9 @@ const ProductDetailsPage = () => {
         const res = await backend.get(`/product/${id}/images`);
         setImgs(res.data.data);
         // console.log(res.data.data); 
+    }
+    const handleBack = ()=>{
+        navigate(-1);
     }
   
     useEffect(()=>{
@@ -57,7 +62,7 @@ const ProductDetailsPage = () => {
                         <p className='sec-info'>Branch</p>
                         <p className='pri-info'>{user?user.department:null}</p>
                         <p className='sec-info'>Phone Number</p>
-                        <p className='pri-info'>{user?user.mobile:null}</p>
+                        <p className='pri-info'>{isLogged?user?user.mobile:null:'+91xxxxxxxxxx'}</p>
                     </div>
                 </div>
             </div>

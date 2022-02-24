@@ -18,7 +18,8 @@ CREATE TABLE products(
     category VARCHAR(200) NOT NULL,
     price INT NOT NULL,
     posted_date DATE NOT NULL,
-    description TEXT NOT NULL
+    description TEXT NOT NULL,
+    display_img TEXT
 );
 
 CREATE TABLE wish_list(

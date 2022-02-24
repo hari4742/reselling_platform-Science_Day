@@ -69,7 +69,7 @@
   border-bottom: 4px solid #fc8a15;
 }
 .signup-page-container .signup-page .signup-form [type="submit"] {
-  width: 22%;
+  /* width: 22%; */
   border: none;
   font-size: 14px;
   align-self: center;

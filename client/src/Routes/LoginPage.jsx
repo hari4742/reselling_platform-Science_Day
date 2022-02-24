@@ -19,7 +19,7 @@ const LoginPage = () => {
     });
     const fetchWishlist = async(user_id)=>{
         const res = await backend.get(`/user/${user_id}/wish_list`);
-        console.log(res);
+        // console.log(res);
         setWishList(res.data.data);
     }
     const fetchUser = async()=>{

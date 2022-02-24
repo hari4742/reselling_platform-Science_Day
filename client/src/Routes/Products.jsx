@@ -10,7 +10,6 @@ const Category = (props)=>{
             if(e.target.innerText === 'All')return true;
             return prod.category===e.target.innerText}
             ))
-        console.log(e.target.innerText);
     }
     return(
         <p onClick={handleCategory}  className="cat">

@@ -5,8 +5,8 @@ const Logo = () => {
     return ( 
         <Link to="/">
             <div className="logo">
-                <p>CUH</p>
-                <p>OLX</p>
+                <p>U-SELL</p>
+                {/* <p>OLX</p> */}
             </div>
         </Link>
      );

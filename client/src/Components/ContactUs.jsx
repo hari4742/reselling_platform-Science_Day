@@ -8,8 +8,8 @@ function ContactUs() {
     <Fragment>
     <div>
       <div className="port1">
-        <img id="logo" src={img} />
-        <p id="letter">| Help Center</p>
+        {/* <img id="logo" src={img} /> */}
+        <p id="letter">Help Center</p>
       </div>
       <div className="port2">
         <a href="https://help.olx.in/hc/en-us/articles/360010663480">

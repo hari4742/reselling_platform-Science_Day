@@ -26,13 +26,13 @@ const SellProductPage = () => {
             const res = await backend.post(`/user/${user_id}/prod/${prod_id}/upload/product/images`,formdata,{headers:{'Content-Type': 'multipart/form-data'}});
             // console.log(res.data.data);
             swal("Your product is ready to buy",'',"success");
-            navigate('/');
+            navigate('/products');
         }
     }
-    const handleSubmit = async()=>{
+    const handleSubmit = async(e)=>{
         const currentDate = new Date();
         const posted_date = currentDate.getFullYear().toString()+'-'+(currentDate.getMonth()+1).toString()+'-'+currentDate.getDate().toString();
-        if(product_name==="" || category==="" || price === "" ||description === ""){
+        if(product_name==="" || category==="" ||category==="Category" || price === "" ||description === ""){
             swal("Input fiels can't be empty",'info');
         }else{
             let formdata = new FormData();
@@ -46,7 +46,10 @@ const SellProductPage = () => {
             const res = await backend.post('/product/add',formdata,{headers:{'Content-Type': 'multipart/form-data'}});
             if(res.data.status === 'success'){
                 setProdId(res.data.data[0].prod_id);
-                console.log(prod_id);
+                if(e.target.innerText !== 'Upload More Images'){
+                    navigate('/products');
+                }
+                // console.log(prod_id);
             }else{
                 swal(res.data.status);
             }
@@ -62,8 +65,8 @@ const SellProductPage = () => {
                 <input onChange={(e)=>{setProductName(e.target.value);}} type="text" name="product_name" id="product_name" placeholder="Product Name" value={product_name} required/>
                 <div className="category-price">
                     <input type="number" onChange={(e)=>{setPrice(e.target.value);}} placeholder="Price" name="price" id="price" value={price} required/>
-                    <select onChange={(e)=>{setCategory(e.target.value);}} name="categorty" id="category" value={category} placeholder="Category" required>
-                        <option value="category" disabled>Category</option>
+                    <select  onChange={(e)=>{setCategory(e.target.value);}} name="categorty" id="category" value={category} placeholder="Category" required>
+                        <option value=""  hidden defaultValue >Category</option>
                         <option value="Phones">Phones</option>
                         <option value="Mugs">Mugs</option>
                         <option value="Bucket">Bucket</option>
@@ -80,14 +83,14 @@ const SellProductPage = () => {
             </form>
             }
             <div className="sell-product-page-btns">
-                {
-                    !prod_id?
-                    <p onClick={()=>{navigate('/')}}>Back</p>:null
-                }
+                {!prod_id?
+                <p onClick={handleSubmit}>Upload More Images</p>
+                :null}
                 {prod_id?
                 <p onClick={uploadImages}>Sell Product</p>
                 :
-                <p onClick={handleSubmit}>Upload More Images</p>
+                <p id='submit-btn' onClick={(e)=>{handleSubmit(e)}}>Submit</p>
+                
                 }
             </div>
         </div>

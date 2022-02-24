@@ -9,6 +9,7 @@ const UserWishList = () => {
         <div className="user-wish-list">
             <ProfileNav/>
             <div className="wish-list-prods">
+            <h2>Wish List</h2>
                 {wishList.length!==0?wishList.map((prod,idx)=>{return <ItemCard key={idx} prod={prod}/>}):<p>No items in your wish list</p>}
             </div>
         </div>

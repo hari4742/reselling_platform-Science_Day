@@ -59,7 +59,7 @@
 .login-page .login-form #welcome {
   position: absolute;
   top: 0px;
-  left: 33px;
+  left: 50px;
   padding: 9px 13px;
   background: linear-gradient(
     130deg,
@@ -100,8 +100,8 @@
   border: none;
 }
 .login-page img {
-  height: 80%;
-  /* width: 50%; */
+  /* height: 80%; */
+  width: 35%;
 }
 .login-page .login-form h2 {
   color: rgb(128, 122, 119);

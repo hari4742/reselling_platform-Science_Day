@@ -1,7 +1,9 @@
 .product-details-page {
   height: 100%;
   background-color: #f5f6f7;
+  position: relative;
 }
+
 .product-details-page .imgs-details {
   padding: 10px 20px;
   height: 100%;

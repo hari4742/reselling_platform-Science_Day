@@ -1,3 +1,28 @@
 .user-posts {
   display: flex;
 }
+.user-posts .posts {
+  height: 100vh;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+}
+.posts h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+.user-posts .posts .pro-post {
+  display: inline-block;
+  position: relative;
+}
+.user-posts .posts::-webkit-scrollbar {
+  display: none;
+}
+.posts .icon {
+  font-size: 25px;
+  color: #eb3b5a;
+  position: absolute;
+  right: 25px;
+  bottom: 40px;
+  cursor: pointer;
+  z-index: 10;
+}

@@ -7,6 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 import SellBtn from './SellBtn';
 import backend from '../backend';
 import ProfileBtn from './ProfileBtn';
+import {GiHamburgerMenu} from 'react-icons/gi';
 
 const Header = () => {
     const {isLogged,setLogged,setUser,setWishList} = useContext(AuthContext)
@@ -39,12 +40,17 @@ const Header = () => {
             setLogged(false);
         }
     }
+    const handleMenu = ()=>{
+        let menu = document.querySelector('.header');
+        menu.classList.toggle('menu');
+    }
   
     useEffect(()=>{
         fetchUser();
     },[]);
     return ( 
         <div className="header">
+            <GiHamburgerMenu onClick={handleMenu} id='menu'/>
             <div className="logo-text">
                 <img src={cuh_logo} alt="cuh_logo" />
                 <Logo/>
@@ -62,7 +68,6 @@ const Header = () => {
                 <p><Link to='/login'>Login</Link></p>
                 <p><Link to='/signup' style={{color:"white"}}>Sign Up</Link></p>
             </div>}
-               
             
         </div>
      );

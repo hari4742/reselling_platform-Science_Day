@@ -1,0 +1,392 @@
+/* Responsiveness */
+@media screen and (max-width: 850px) {
+  .details .pri-info {
+    font-size: 12px;
+  }
+  .details .sec-info {
+    font-size: 10px;
+  }
+  .product-details-page .imgs-details .details h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .home .display-text p:nth-child(1) {
+    font-size: 40px;
+  }
+  .home .display-text p:nth-child(2) {
+    font-size: 30px;
+  }
+  .header .login-sign p {
+    font-size: 12px;
+    padding: 4px 7px;
+  }
+  .header .nav {
+    font-size: 14px;
+    gap: 15px;
+  }
+  .logo p {
+    font-size: 12px;
+  }
+  .header .logo-text img {
+    height: 40px;
+  }
+  .footer {
+    font-size: 12px;
+  }
+  .footer .icon {
+    font-size: 17px;
+  }
+  .footer-out .last {
+    font-size: 14px;
+  }
+  .user-btns-login {
+    font-size: 10px;
+  }
+  .profile-btn {
+    gap: 10px;
+  }
+  .profile-btn p {
+    font-size: 14px;
+  }
+  .profile-btn img {
+    width: 25px;
+    height: 25px;
+  }
+  .user-btns-login {
+    gap: 20px;
+  }
+  .sell-product-page form input {
+    width: 80%;
+  }
+  .sell-product-page form textarea {
+    width: 80%;
+  }
+  .sell-product-page .category-price select {
+    width: 40%;
+  }
+  .sell-product-page .category-price #price {
+    width: 40%;
+  }
+  .sell-product-page p {
+    font-size: 15px;
+  }
+  .sell-product-page form {
+    width: 100%;
+    align-items: center;
+  }
+  .sell-product-page-btns {
+    gap: 20px;
+  }
+  /* Products page */
+  .search-bar {
+    width: 80%;
+  }
+  .products .categories {
+    width: 20%;
+    padding: 20px 30px;
+    font-size: 12px;
+  }
+  .products .categories p:nth-child(1) {
+    font-size: 15px;
+  }
+  .details .pri-info {
+    font-size: 10px;
+  }
+  .details .sec-info {
+    font-size: 8px;
+  }
+  .product-details-page .imgs-details .details h3 {
+    font-size: 16px;
+  }
+  .product-details-page .imgs-details {
+    flex-direction: column-reverse;
+  }
+  .product-details-page .imgs-details .details {
+    width: 100%;
+    flex-direction: row;
+  }
+  .product-details-page .imgs-details .details .product-details {
+    width: 50%;
+  }
+  .product-details-page .imgs-details .details .seller-details {
+    width: 50%;
+  }
+  .product-details-page .imgs-details .details {
+    width: 100%;
+  }
+  .imgs-description {
+    width: 100%;
+  }
+  .update-form form {
+    align-items: center;
+    width: 90%;
+  }
+  .update-form form input {
+    width: 90%;
+  }
+  .update-form form .names {
+    width: 90%;
+  }
+  .update-form form .names input {
+    width: 50%;
+  }
+  .change-pass {
+    width: 90%;
+  }
+  .change-pass .pass2 input {
+    width: 100%;
+  }
+  .update-btn {
+    gap: 20px;
+  }
+  .login-page img {
+    display: none;
+  }
+  .login-page {
+    background: transparent;
+  }
+  .login-page .login-form {
+    width: 100%;
+  }
+  .login-page .login-form input {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .signup-page-container .signup-page {
+    background: transparent;
+    width: 90vw;
+  }
+  .signup-page-container .img-box img {
+    display: none;
+  }
+  .signup-page-container .signup-page .signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .signup-page-container .img-box {
+    width: 0px;
+  }
+  .signup-page-container .signup-page .signup-form #welcome-signup {
+    left: 0px;
+    top: 45px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .home .display-text p:nth-child(1) {
+    font-size: 30px;
+  }
+  .home .display-text p:nth-child(2) {
+    font-size: 20px;
+  }
+  .home .display-text {
+    top: 19%;
+  }
+  .header {
+    padding: 7px 30px;
+  }
+  .header .login-sign p {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
+  .header .nav {
+    font-size: 12px;
+    gap: 12px;
+  }
+  .footer {
+    font-size: 10px;
+  }
+  .footer .icon {
+    font-size: 15px;
+  }
+  .footer-out .last {
+    font-size: 12px;
+  }
+  .user-btns-login {
+    font-size: 8px;
+  }
+  .profile-btn p {
+    font-size: 10px;
+  }
+  .profile-btn img {
+    width: 18px;
+    height: 18px;
+  }
+  .user-btns-login {
+    gap: 8px;
+  }
+  .sell-btn {
+    padding: 5px 10px;
+  }
+  /* Products page */
+  .products .categories {
+    font-size: 10px;
+  }
+  .products .categories p:nth-child(1) {
+    font-size: 12px;
+  }
+  .search-prods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-page {
+    width: 90vw;
+    padding: 10px;
+  }
+  .login-page .login-form #welcome {
+    left: 0px;
+  }
+  .part3 {
+    margin: 30px;
+  }
+  .part3 p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px 0px;
+    position: relative;
+    overflow: hidden;
+    height: 75px;
+    padding: 18px 20px;
+    position: relative;
+  }
+
+  .header .nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home .display-text p:nth-child(1) {
+    font-size: 20px;
+  }
+  .home .display-text p:nth-child(2) {
+    font-size: 12px;
+  }
+  .home .disp_img {
+    height: 100vh;
+  }
+  #menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 25px;
+  }
+  .menu {
+    height: fit-content;
+  }
+  .header .logo-text {
+    align-self: flex-start;
+  }
+  .profile-btn p {
+    font-size: 15px;
+  }
+  .profile-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .user-btns-login {
+    position: absolute;
+    top: 25px;
+    right: 20%;
+  }
+  .search-bar {
+    width: 90%;
+  }
+  .products .search-prods {
+    margin: auto;
+  }
+
+  .products .categories {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: scroll;
+  }
+  .product-details-page .imgs-details .details {
+    width: 100%;
+    flex-direction: column;
+  }
+  .product-details-page .imgs-details .details .product-details {
+    width: 100%;
+  }
+  .product-details-page .imgs-details .details .seller-details {
+    width: 100%;
+  }
+  .details .pri-info {
+    font-size: 10px;
+  }
+  .details .sec-info {
+    font-size: 8px;
+  }
+  .product-details-page .imgs-details .details h3 {
+    font-size: 16px;
+  }
+
+  .profile-nav {
+    width: 100vw;
+  }
+  .user-posts .profile-nav {
+    display: none;
+  }
+  .user-wish-list .profile-nav {
+    display: none;
+  }
+  .user-update .profile-nav {
+    display: none;
+  }
+  .user-posts .posts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .wish-list-prods {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .update-form form {
+    align-items: center;
+    width: 90%;
+  }
+  .update-form form input {
+    width: 90%;
+  }
+  .update-form form .names {
+    width: 90%;
+  }
+  .update-form form .names input {
+    width: 50%;
+  }
+  .change-pass {
+    width: 90%;
+  }
+  .change-pass .pass2 input {
+    width: 100%;
+  }
+  .signup-page-container .signup-page {
+    width: 95vw;
+    padding-top: 40px;
+  }
+  .signup-page-container .signup-page .signup-form #welcome-signup {
+    top: -20px;
+  }
+  .signup-page-container .signup-page .signup-form {
+    width: 100%;
+    padding: 40px 10px;
+  }
+}

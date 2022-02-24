@@ -5,6 +5,10 @@
 .user-wish-list .wish-list-prods {
   overflow-y: scroll;
 }
+.user-wish-list .wish-list-prods h2 {
+  text-align: center;
+  margin-top: 15px;
+}
 
 .user-wish-list .wish-list-prods::-webkit-scrollbar {
   display: none;
