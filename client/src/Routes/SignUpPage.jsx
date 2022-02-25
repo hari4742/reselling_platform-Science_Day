@@ -121,7 +121,7 @@ const SignUpPage = () => {
                     <div className="mobile-dept">
                         <input type="tel" value={mobile} onChange={(e)=>{setMobile(e.target.value)}} name="mobile" id="mobile" placeholder='Phone Number (*)' required/>
                         <select name="department" id="department" required>
-                            <option value="Department" disabled>Select Department (*)</option>
+                            <option value="" hidden defaultValue>Select Department (*)</option>
                             <option value="CSE">CSE</option>
                             <option value="PPT">PPT</option>
                             <option value="EE">EE</option>

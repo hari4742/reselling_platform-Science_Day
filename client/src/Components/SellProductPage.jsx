@@ -47,6 +47,7 @@ const SellProductPage = () => {
             if(res.data.status === 'success'){
                 setProdId(res.data.data[0].prod_id);
                 if(e.target.innerText !== 'Upload More Images'){
+                    swal("Your product is ready to buy",'',"success");
                     navigate('/products');
                 }
                 // console.log(prod_id);

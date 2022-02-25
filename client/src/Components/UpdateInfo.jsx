@@ -22,7 +22,7 @@ const UpdateInfo = (props) => {
         let f_name = document.getElementById("f_name_U").value;
         let l_name = document.getElementById("l_name_U").value;
         let e_mail = document.getElementById("e_mail_U").value;
-        const regex = /[A-Za-z0-9_\.]+@\w+\.[a-z]+/;
+        const regex = /[A-Za-z0-9_.]+@\w+\.[a-z]+/;
         if (f_name === '' || l_name === '' || e_mail === ''){
             alert("Input fields can't be empty.");
             return false;

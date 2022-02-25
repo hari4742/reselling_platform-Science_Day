@@ -28,9 +28,7 @@ const ProductDetailsPage = () => {
         setImgs(res.data.data);
         // console.log(res.data.data); 
     }
-    const handleBack = ()=>{
-        navigate(-1);
-    }
+
   
     useEffect(()=>{
         fetchProduct();

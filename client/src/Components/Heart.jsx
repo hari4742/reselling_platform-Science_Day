@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { AiOutlineHeart,AiFillHeart } from 'react-icons/ai';
 import { AuthContext } from '../context/AuthContext';
 import backend from '../backend';
+import swal from 'sweetalert';
 const Heart = (props) => {
-    const {user,wishList} = useContext(AuthContext);
+    const {user,wishList,isLogged} = useContext(AuthContext);
     const [isFilled,changeFill] = useState(false);
     const [wishId,setWishId] = useState(null);
     const addToWishlist = async()=>{
@@ -26,15 +27,19 @@ const Heart = (props) => {
         }
     }
     useEffect(()=>{
-        fetchWishlist();
+        if(isLogged){fetchWishlist();}
     },[])
 
     const handleClick = ()=>{
-        changeFill(isFilled?false:true)
-        if(isFilled){
-            delFromWishList();
+        if(isLogged){
+            changeFill(isFilled?false:true)
+            if(isFilled){
+                delFromWishList();
+            }else{
+                addToWishlist();
+            }
         }else{
-            addToWishlist();
+            swal("Please Log in or Sign Up!",' ','info');
         }
     }
     return ( 

@@ -117,6 +117,7 @@
   }
   .imgs-description {
     width: 100%;
+    height: fit-content;
   }
   .update-form form {
     align-items: center;

@@ -6,7 +6,7 @@ const Home = () => {
     return ( 
         <div className="home">
           <div className="disp_img">
-            <img style={{width:'99vw',margin:'0px'}} src={slider5} />
+            <img style={{width:'99vw',margin:'0px'}} src={slider5} alt="display image"/>
           </div>
           <div className="display-text">
             <p>Central University of Haryana</p>

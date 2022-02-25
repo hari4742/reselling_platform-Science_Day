@@ -1,7 +1,6 @@
 
 import React,{Fragment} from 'react';
 import "../Styles/contact-us.css";
-import img from '../Images/cuh_logo.png';
 
 function ContactUs() {
   return (
