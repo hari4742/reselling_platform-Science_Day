@@ -8,7 +8,10 @@ const db = require("./db/db");
 
 const jwtTokenPass = "reselling";
 // Middle wares
-app.use(cors());
+let corsOptions = {
+  origin: ["*"],
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(fileUpload());
 
